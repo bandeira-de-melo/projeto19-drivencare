@@ -1,4 +1,4 @@
-function schemaValidator(schema) {
+export function schemaValidator(schema) {
   return (req, res, next) => {
       const body = req.body;
 
