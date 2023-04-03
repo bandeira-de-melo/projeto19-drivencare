@@ -5,6 +5,13 @@ function duplicatedEmailError(){
   }
 }
 
+function wrongCredentialsError(){
+  return {
+    name:'wrongCredentialsError',
+    message: 'Invalid email or password'
+  }
+}
+
 export default {
   duplicatedEmailError
 }

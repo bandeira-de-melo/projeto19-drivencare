@@ -10,7 +10,15 @@ async function create(req, res, next){
   }
 }
 
-
+async function signin(req, res, next){
+  const {email, password} = res.locals.data
+  try {
+    const token = await pacientsServices.signin({email, password})
+    return res.send({token})
+  } catch (error) {
+    next(error)
+  }
+}
 
 export default {
   create
