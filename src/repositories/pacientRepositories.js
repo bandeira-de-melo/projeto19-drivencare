@@ -19,8 +19,15 @@ async function findById(pacientId){
   `,[pacientId])
 }
 
+async function getDoctors(){
+  return await connectionDb.query(`
+  SELECT name, specialty, location FROM doctors;
+  `)
+}
+
 export default {
   findByEmail,
   create,
-  findById
+  findById,
+  getDoctors
 }

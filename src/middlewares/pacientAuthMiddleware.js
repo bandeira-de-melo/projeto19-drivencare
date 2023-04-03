@@ -4,7 +4,7 @@ import errors from "../errors/errors.js";
 import pacientRepositories from "../repositories/pacientRepositories.js";
 dotenv.config()
 
- export async function authMiddleware(req, res, next) {
+ export async function pacientAuthMiddleware(req, res, next) {
   const {authorization} = req.headers;
 
   const tokenParts = authorization.split(' ');
@@ -19,7 +19,7 @@ dotenv.config()
       const {rows: [pacient]} = pacientRepositories.findById(decoded.pacientId)
       if(!pacient) throw errors.unauthorizedError();
 
-      res.locals.data = pacient
+      res.locals.pacient = pacient
 
       next()
     } catch (error) {
