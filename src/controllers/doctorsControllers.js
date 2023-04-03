@@ -1,3 +1,5 @@
+import doctorsServices from "../services/doctorsServices.js"
+
 async function create(req, res, next){
   const {name, email, password, specialty, location} = res.locals.data
   try {
@@ -6,4 +8,8 @@ async function create(req, res, next){
   } catch (error) {
     next(error)
   }
+}
+
+export default {
+  create,
 }
