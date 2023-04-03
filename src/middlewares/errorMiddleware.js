@@ -12,4 +12,8 @@ export function handleAppErros(err, req, res, next) {
   if(err.name==='Invalid format'){
     return res.status(httpStatus.UNPROCESSABLE_ENTITY).send({message: err.message})
   }
+
+  if(err.name === 'unauthorizedError'){
+    return res.status(httpStatus.UNAUTHORIZED).send({message: err.message})
+  }
 }

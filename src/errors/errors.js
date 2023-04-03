@@ -19,6 +19,13 @@ function wrongCredentialsError(){
   }
 }
 
+function unauthorizedError(){
+  return{
+    name:'unauthorizedError',
+    message: 'Unauthorized: Invalid token'
+  }
+}
+
 export default {
   duplicatedEmailError,
   wrongCredentialsError,

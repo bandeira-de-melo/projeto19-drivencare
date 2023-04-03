@@ -17,8 +17,8 @@ CREATE TABLE doctors(
 
 CREATE TABLE appointments(
   id serial PRIMARY KEY,
-  doctor_id,
-  pacient_id,
+  doctor_id INTEGER NOT NULL REFERENCES doctors("id"),
+  pacient_id INTEGER REFERENCES pacients("id"),
   date DATE NOT NULL,
   starts_at TIMESTAMP WITH TIME ZONE NOT NULL,
   ends_at TIMESTAMP WITH TIME ZONE NOT NULL,

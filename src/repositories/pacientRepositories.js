@@ -13,7 +13,14 @@ async function create({name, email, password}){
   `,[name, email, password]);
 }
 
+async function findById(pacientId){
+  return await connectionDb.query(`
+  SELECT id, name AS pacient_name, role FROM pacients WHERE id=$1
+  `,[pacientId])
+}
+
 export default {
   findByEmail,
   create,
+  findById
 }
