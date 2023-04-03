@@ -1,3 +1,5 @@
+import errors from "../errors/errors.js";
+
 export function schemaValidator(schema) {
   return (req, res, next) => {
       const body = req.body;

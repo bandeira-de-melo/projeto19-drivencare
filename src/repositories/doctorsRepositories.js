@@ -4,9 +4,7 @@ async function findByEmail(email) {
   return await connectionDb.query(
     `    
     SELECT * FROM doctors WHERE email=$1
-  `,
-    [email]
-  );
+  `,[email]);
 }
 
 async function create({name, email, password, specialty, location}){

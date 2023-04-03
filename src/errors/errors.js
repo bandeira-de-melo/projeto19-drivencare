@@ -1,3 +1,10 @@
+function invalidFormat(){
+  return{
+    name: 'Invalid format',
+    message: 'Invalid data format'
+  }
+}
+
 function duplicatedEmailError(){
   return {
     name: 'duplicatedEmailError',
@@ -13,5 +20,7 @@ function wrongCredentialsError(){
 }
 
 export default {
-  duplicatedEmailError
+  duplicatedEmailError,
+  wrongCredentialsError,
+  invalidFormat
 }

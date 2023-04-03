@@ -1,16 +1,16 @@
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt'
 import errors from "../errors/errors.js";
 import pacientRepositories from "../repositories/pacientRepositories.js";
 import dotenv from 'dotenv'
 dotenv.config()
 
-async function create({name,email,password,dateOfBirth}){
+async function create({name, email, password}){
   const {rowCount} = await pacientRepositories.findByEmail(email)
   if(rowCount) throw errors.duplicatedEmailError()
 
-  const hashedPassord = await bcrypt.hash(password, 10)
-  await pacientRepositories
-  .create({name, email, password: hashedPassord,dateOfBirth})
+  const hashedPassword = await bcrypt.hash(password, 10)
+  await pacientRepositories.create({name, email, password: hashedPassword})
 }
 
 async function signin({email, password}){

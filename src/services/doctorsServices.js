@@ -6,9 +6,8 @@ async function create({name, email, password, specialty, location}){
     const {rowCount} = await doctorsRepositories.findByEmail(email);
     if(rowCount) throw errors.duplicatedEmailError()
 
-    const hashedPassord = await bcrypt.hash(password, 10)
-    await doctorsRepositories
-    .create({name, email, password: hashedPassord, specialty, location})
+    const hashedPassword = await bcrypt.hash(password, 10)
+    await doctorsRepositories.create({name, email, password: hashedPassword, specialty, location})
 }
 
 export default {

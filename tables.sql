@@ -3,7 +3,7 @@ CREATE TABLE pacients(
   name varchar(160) NOT NULL,
   email TEXT NOT NULL,
   password TEXT NOT NULL,
-  date_of_birth DATE NOT NULL,
+  date_of_birth DATE NOT NULL
 );
 
 CREATE TABLE doctors(
@@ -11,7 +11,7 @@ CREATE TABLE doctors(
   name varchar(160) NOT NULL,
   email TEXT NOT NULL,
   password TEXT NOT NULL,
-  specialty varchar(180)
+  specialty varchar(180),
   location TEXT NOT NULL
 );
 
