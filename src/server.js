@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import routes from "./routes/index.js";
-import errors from "./errors/errors.js";
+import { handleAppErros } from "./middlewares/errorMiddleware.js";
 dotenv.config();
 
 const app = express();
@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(routes);
-app.use(errors)
+app.use(handleAppErros)
 
 const port = process.env.PORT || 5000;
 
